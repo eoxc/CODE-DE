@@ -48,7 +48,8 @@ import getTutorialWidget from './tutorial';
 
 es6Promise.polyfill();
 
-const germanTranslation = require('./languages/de.json');
+const germanFormalTranslation = require('./languages/de.json');
+const germanInformalTranslation = require('./languages/deinformal.json');
 const englishTranslation = require('./languages/en.json');
 
 
@@ -93,10 +94,13 @@ window.Application = Marionette.Application.extend({
       lng: this.config.settings.language || 'en',
       fallbackLng: 'en',
       resources: {
-        de: {
-          translation: germanTranslation,
+        'de': {
+          translation: germanFormalTranslation,
         },
-        en: {
+        'deinformal': {
+          translation: germanInformalTranslation,
+        },
+        'en': {
           translation: englishTranslation,
         },
       },
@@ -116,6 +120,7 @@ window.Application = Marionette.Application.extend({
 
     if (config.settings.parameters) {
       const parameterPromises = layersCollection
+        .filter(layerModel => layerModel.get('search.protocol'))
         .map(layerModel => getParameters(layerModel).then(parameters => [layerModel, parameters]));
       Promise.all(parameterPromises)
         .then((layersPlusParameters) => {
@@ -418,6 +423,7 @@ window.Application = Marionette.Application.extend({
 
     // create a dynamic style to set up the border/background color of record
     // items in the search results and download selection view.
+
     $(`<style>
       .record-item:hover, .record-item.highlighted {
         background-color: ${settings.highlightFillColor};
@@ -447,6 +453,7 @@ window.Application = Marionette.Application.extend({
           $('#tutorial').click(() => {
             // Iterate through anno elements to see if any is open and needs to
             // be closed
+            /* eslint-disable no-underscore-dangle */
             let cv = tutWidg;
             while (cv._chainNext) {
               if (cv._annoElem) {
@@ -454,6 +461,7 @@ window.Application = Marionette.Application.extend({
               }
               cv = cv._chainNext;
             }
+            /* eslint-enable no-underscore-dangle */
             tutWidg.show();
           });
         }
@@ -462,7 +470,7 @@ window.Application = Marionette.Application.extend({
           tutWidg.show();
         }
 
-        if (settings.tutorial === 'first') {
+        if (settings.tutorial === 'once') {
           if (typeof (Storage) !== 'undefined') {
             if (localStorage.getItem('firstVisit') === null) {
               // Open tutorial automatically if it is the first visit
