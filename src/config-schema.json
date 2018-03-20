@@ -606,6 +606,10 @@
                         "description": "Namespace code to URL mapping for namespaces used in 'extraFields'.",
                         "type": "object"
                     },
+                    "headers": {
+                        "description": "Additional headers to be sent to the search provider in all HTTP search requests.",
+                        "type": "object"
+                    },
                     "required": ["protocol", "url"]
                 },
                 "download": {
