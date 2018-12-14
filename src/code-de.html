@@ -56,7 +56,7 @@
     "settings": {
         "tutorial": "once",
         "uploadEnabled": false,
-        "downloadEnabled": false,
+        "downloadEnabled": true,
         "searchDebounceTime": 500,
         "language": "en",
         // "termsAndConditionsUrl": {
@@ -303,7 +303,7 @@
             "displayColor": "#7AC6CF",
             "display": {
                 "id": "S1_SAR_L1_GRD",
-                "visible": false,
+                "visible": true,
                 "protocol": "WMS",
                 "urls": [
                     "http://ows.eox.at/code-de_geoservice/Sentinel1/wms?"
@@ -315,7 +315,7 @@
             },
             "search": {
                 "protocol": "OpenSearch",
-                "url": "http://ows.eox.at/code-de/CODE-DE_S1_SAR_L1_GRD.osdd",
+                "url": "http://ows.eox.at/code-de_staging/CODE-DE_S1_SAR_L1_GRD.osdd",
                 "id": "EOP:CODE-DE:S1_SAR_L1_GRD",
                 "histogramBinCount": 28,
                 "format": "application\/atom+xml",
@@ -351,6 +351,9 @@
                     },
                     {
                         "type": "eo:maximumIncidenceAngle"
+                    },
+                    {
+                        "type": "eo:onlineState"
                     }
                 ],
                 "countZeroRecords": true,
@@ -379,7 +382,7 @@
             },
             "search": {
                 "protocol": "OpenSearch",
-                "url": "http://ows.eox.at/code-de/CODE-DE_S1_SAR_L1_SLC.osdd",
+                "url": "http://ows.eox.at/code-de_staging/CODE-DE_S1_SAR_L1_SLC.osdd",
                 "id": "EOP:CODE-DE:S1_SAR_L1_SLC",
                 "histogramBinCount": 28,
                 "format": "application\/atom+xml",
@@ -415,6 +418,9 @@
                     },
                     {
                         "type": "eo:maximumIncidenceAngle"
+                    },
+                    {
+                        "type": "eo:onlineState"
                     }
                 ],
                 "countZeroRecords": true,
@@ -443,7 +449,7 @@
             },
             "search": {
                 "protocol": "OpenSearch",
-                "url": "http://ows.eox.at/code-de/CODE-DE_S1_SAR_L2_OCN.osdd",
+                "url": "http://ows.eox.at/code-de_staging/CODE-DE_S1_SAR_L2_OCN.osdd",
                 "id": "EOP:CODE-DE:S1_SAR_L2_OCN",
                 "histogramBinCount": 28,
                 "format": "application\/atom+xml",
@@ -479,6 +485,9 @@
                     },
                     {
                         "type": "eo:maximumIncidenceAngle"
+                    },
+                    {
+                        "type": "eo:onlineState"
                     }
                 ],
                 "countZeroRecords": true,
@@ -523,7 +532,7 @@
             },
             "search": {
                 "protocol": "OpenSearch",
-                "url": "http://ows.eox.at/code-de/CODE-DE_S2_MSI_L1C.osdd",
+                "url": "http://ows.eox.at/code-de_staging/CODE-DE_S2_MSI_L1C.osdd",
                 "id": "EOP:CODE-DE:S2_MSI_L1C",
                 "histogramBinCount": 28,
                 "format": "application\/atom+xml",
@@ -561,7 +570,11 @@
                             "label": "60m",
                             "value": "60",
                         }]
+                    },
+                    {
+                        "type": "eo:onlineState"
                     }
+
                 ],
                 "countZeroRecords": true,
                 "dropEmptyParameters": true,
