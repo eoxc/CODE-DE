@@ -496,6 +496,10 @@
                                     }
                                 }
                             }
+                        }, 
+                        "legendUrl": {
+                            "description": "URL of the legend, to be shown in modal window",
+                            "type": "string"
                         }
                     },
                     "required": ["id", "protocol", "format", "style"],
@@ -555,6 +559,11 @@
                             "description": "This is the count of elements to be fetched when 'Load more' is clicked.",
                             "type": "number",
                             "default": 150
+                        },
+                        "searchEnabled": {
+                            "description": "To decide if layer should be searched in catalog by default",
+                            "type": "boolean",
+                            "default": true
                         },
                         "parameters": {
                             "description": "Mapping the parameter type (such as eo:processingCenter) to a settings object.",
