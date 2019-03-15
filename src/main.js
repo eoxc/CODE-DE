@@ -209,6 +209,7 @@ window.Application = Marionette.Application.extend({
       downloadProjections: [],
       uploadEnabled: true,
       downloadEnabled: true,
+      searchEnabled: true
     });
 
     // set up config
@@ -242,6 +243,7 @@ window.Application = Marionette.Application.extend({
         maxCount: layerModel.get('search.searchLimit'),
         loadMore: layerModel.get('search.loadMore'),
         extraParameters: layerModel.get('search.extraParameters'),
+        searchEnabled: (typeof layerModel.get('search.searchEnabled') !== 'undefined') ? layerModel.get('search.searchEnabled') : settings.searchEnabled,
         debounceTime: settings.searchDebounceTime,
       }));
     const searchCollection = new Backbone.Collection(searchModels);
