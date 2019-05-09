@@ -11,6 +11,10 @@
         <a class="btn btn-default btn-xs records-next">
           <i class="fa fa-angle-double-right" aria-hidden="true"></i>
         </a>
+        <label style="margin-left:10px;cursor:pointer;">
+          {{t 'Keep zoom level'}}
+          <input type="checkbox" class="keepZoom" {{#if keepZoom}}checked{{/if}} style="top:2px;position:relative;">
+        </label>
       </span>
       {{/if}}
       <button class="btn btn-sm btn-default layer-options"><i class="fa fa-wrench"></i></button>

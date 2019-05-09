@@ -203,6 +203,11 @@
                     "type": "string",
                     "default": "#ff0000"
                 },
+                "keepZoom": {
+                    "description": "Option to decide if product information modal window map zoom should stay the same between records.",
+                    "type": "boolean",
+                    "default": false
+                },
                 "leftPanelOpen": {
                     "description": "Whether or not the left panel shall be open on start.",
                     "type": "boolean",

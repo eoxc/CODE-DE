@@ -302,7 +302,8 @@ window.Application = Marionette.Application.extend({
         }),
       }));
     };
-
+    // allow editting of keepZoom from inside of view
+    const keepZoom = { enabled: settings.keepZoom };
     const showRecordDetails = (records) => {
       layout.showChildView('modals', new RecordsDetailsModalView({
         baseLayersCollection,
@@ -314,6 +315,7 @@ window.Application = Marionette.Application.extend({
         filterFillColor: settings.filterFillColor,
         filterStrokeColor: settings.filterStrokeColor,
         filterOutsideColor: settings.filterOutsideColor,
+        keepZoom,
         onStartDownload: startDownload,
       }));
     };

@@ -19,6 +19,7 @@ const RecordsDetailsModalView = ModalView.extend({
       hasNext: this.currentRecordIndex < this.records.length - 1,
       hasPrev: this.currentRecordIndex > 0,
       hasMore: this.records.length > 1,
+      keepZoom: this.keepZoom.enabled,
     };
   },
 
@@ -28,6 +29,7 @@ const RecordsDetailsModalView = ModalView.extend({
     'click .layer-options': 'onLayerOptionsClicked',
     'shown.bs.modal': 'onModalShown',
     'change .is-selected': 'onDownloadSelectionChange',
+    'click .keepZoom': 'onKeepZoomChanged',
   },
 
   initialize(options) {
@@ -43,7 +45,9 @@ const RecordsDetailsModalView = ModalView.extend({
     this.filterFillColor = options.filterFillColor;
     this.filterStrokeColor = options.filterStrokeColor;
     this.filterOutsideColor = options.filterOutsideColor;
+    this.firstRecordShow = true;
 
+    this.keepZoom = typeof options.keepZoom !== 'undefined' ? options.keepZoom : { enabled: false };
     this.mapModel = new MapModel({ center: [0, 0], zoom: 5, noclick: true });
     this.highlightModel = new HighlightModel();
     this.filtersModel = new FiltersModel();
@@ -51,6 +55,7 @@ const RecordsDetailsModalView = ModalView.extend({
 
   onModalShown() {
     this.updateRecord(...this.records[this.currentRecordIndex]);
+    this.firstRecordShow = false;
   },
 
   updateRecord(recordModel, searchModel) {
@@ -86,7 +91,17 @@ const RecordsDetailsModalView = ModalView.extend({
 
     this.filtersModel.set('area', recordModel.attributes.geometry);
 
-    this.mapModel.show(recordModel.attributes);
+    if (this.firstRecordShow || !this.keepZoom.enabled) {
+      // normal behavior - fit mapview to feature
+      this.mapModel.show(recordModel.attributes);
+    } else {
+      // just update map center to center of record bbox, do not change zoom
+      const centerLon = (recordModel.attributes.bbox[0] + recordModel.attributes.bbox[2]) / 2.0;
+      const centerLat = (recordModel.attributes.bbox[1] + recordModel.attributes.bbox[3]) / 2.0;
+      this.mapModel.set('center', [centerLon, centerLat]);
+      this.mapModel.trigger('change:center', this.mapModel);
+      this.mapModel.trigger('change:zoom', this.mapModel);
+    }
     this.highlightModel.highlight(recordModel.attributes);
 
     this.$('.modal-title').text(`${layerModel.get('displayName')} - ${time[0].toISOString()}`);
@@ -133,6 +148,10 @@ const RecordsDetailsModalView = ModalView.extend({
     } else {
       downloadSelection.remove(recordModel);
     }
+  },
+
+  onKeepZoomChanged() {
+    this.keepZoom.enabled = this.$('.keepZoom').is(':checked');
   },
 });
 

@@ -43,6 +43,7 @@
   "Skip": "Überspringen",
   "Next": "Weiter",
   "Back": "Zurück",
+  "Keep zoom level": "Zoom nicht ändern",
   "Selected for Download": "Für das Herunterladen ausgewählt",
   "terms_and_conditions": "Ich habe die <a href='{{value}}' target='_blank'>Nutzungsbedingungen</a> gelesen und akzeptiert",
   "Close": "Schließen",
