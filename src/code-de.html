@@ -677,270 +677,270 @@
                 }]
             },
         },
-        {
-            "id": "Sentinel-2-RE",
-            "link": "https://code-de-ref.eoc.dlr.de/en/marketplace/search?filter[0]=type:dataset#body_1c322e7dc2ed34cca3ca20ef49889e80",
-            "displayName": "Sentinel-2 - RE",
-            "displayColor": "rgba(153, 0, 153, 1)",
-            "display": {
-                "id": "S2_MSI_L1C",
-                // "ids": [
-                //     "S2_MSI_L1C_GRANULES",
-                //     "S2_MSI_L1C_10m",
-                // ],
-//layers=S2_MSI_L1C_10m,S2_MSI_L1C_GRANULES
-//&styles=Sentinel2_TCI_105,Sentinel2_fp_scale%20
-//&cql_filter=INCLUDE;cloudcover%20BETWEEN%200%20AND%20100&DIM_cloudcover=0/100
-                "visible": false,
-                "protocol": "WMS",
-                "urls": [
-                    "https://geoservice.code-de-ref.eoc.dlr.de/Sentinel2/wms?"
-                ],
-                "format": "image\/png",
-                "projection": "EPSG:4326",
-                "style": "",
-                "cqlParameterName": "cql_filter",
-                "cqlMapping": {
-                    "eo:cloudCover": "cloudcover"
-                },
-                "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf",
-                "legendUrl": "https://eox.at/wp-content/uploads/2017/09/EOX_Logo.svg"
-            },
-            "search": {
-                "protocol": "OpenSearch",
-                "url": "https://catalog.code-de-ref.eoc.dlr.de/opensearch/description.xml/?parentIdentifier=EOP:CODE-DE:S2_MSI_L1C",
-                "id": "EOP:CODE-DE:S2_MSI_L1C",
-                "histogramBinCount": 28,
-                "format": "application\/atom+xml",
-                "method": "GET",
-                "histogramThreshold": 600,
-                "lightweightBuckets": true,
-                "searchLimit": 600,
-                "loadMore": 600,
-                "searchEnabled": true,
-                "parameters": [
-                    {
-                        "type": "eo:productionStatus"
-                    },
-                    {
-                        "max": 100,
-                        "min": 0,
-                        "range": true,
-                        "type": "eo:cloudCover",
-                        "title": "Cloud Coverage in percent"
-                    },
-                    {
-                        "type": "eo:orbitDirection"
-                    },
-                    {
-                        "type": "eo:orbitNumber"
-                    },
-                    {
-                        "type": "eo:resolution",
-                        "options": [{
-                            "label": "10m",
-                            "value": "10",
-                        }, {
-                            "label": "20m",
-                            "value": "20",
-                        }, {
-                            "label": "60m",
-                            "value": "60",
-                        }]
-                    },
-                    {
-                        "type": "sort:sortBy"
-                    },
-                    {
-                        "type": "sort:sortDir"
-                    }
-                ],
-                "countZeroRecords": true,
-                "dropEmptyParameters": true,
-            },
-            "download": {
-                "protocol": "OpenSearch"
-            },
-            "fullResolution": {
-                "protocol": "WCS",
-                "id": "Sentinel2__S2_MSI_L1C_FULL",
-                "url": "https://geoservice.code-de-ref.eoc.dlr.de/Sentinel2/wcs?",
-                "cqlParameterName": "cql_filter",
-                "cqlMapping": {
-                    "eo:cloudCover": "cloudcover",
-                },
-                "maxSizeWarning": 500,
-                "maxSizeResolution": 0.0000858306884765625,
-                "axisNames": [
-                    'http://www.opengis.net/def/axis/OGC/0/Long',
-                    'http://www.opengis.net/def/axis/OGC/0/Lat'
-                ],
-                "fields": [{
-                  "name": "B01",
-                  "identifier": "B01"
-                }, {
-                  "name": "B02",
-                  "identifier": "B02"
-                }, {
-                  "name": "B03",
-                  "identifier": "B03"
-                }, {
-                  "name": "B04",
-                  "identifier": "B04"
-                }, {
-                  "name": "B05",
-                  "identifier": "B05"
-                }, {
-                  "name": "B06",
-                  "identifier": "B06"
-                }, {
-                  "name": "B07",
-                  "identifier": "B07"
-                }, {
-                  "name": "B08",
-                  "identifier": "B08"
-                }, {
-                  "name": "B09",
-                  "identifier": "B09"
-                }, {
-                  "name": "B10",
-                  "identifier": "B10"
-                }, {
-                  "name": "B11",
-                  "identifier": "B11"
-                }, {
-                  "name": "B12",
-                  "identifier": "B12"
-                }, {
-                  "name": "B8A",
-                  "identifier": "B8A"
-                }],
-                "interpolations": [{
-                  "name": "Nearest-Neighbor",
-                  "identifier": "http://www.opengis.net/def/interpolation/OGC/1/nearest-neighbor"
-                }, {
-                  "name": "Linear",
-                  "identifier": "http://www.opengis.net/def/interpolation/OGC/1/linear"
-                }, {
-                  "name": "Cubic",
-                  "identifier": "http://www.opengis.net/def/interpolation/OGC/1/cubic"
-                }]
-            },
-            "processing": {
-                "url": "https://processing.code-de-ref.eoc.dlr.de/injectInputSelection",
-                "method": "form",
-            }
-        },
-        {
-            "id": "S2_MSI_L1C_2",
-            "link": "https://code-de-ref.eoc.dlr.de/en/marketplace/search?filter[0]=type:dataset#body_38493c296f182e6bdee1b9677badb775",
-            "displayName": "Sentinel-2 - RE - OpenSearch only",
-            "displayColor": "rgba(103, 0, 103, 1)",
-            "display": {
-                "id": "S2_MSI_L1C",
-                "visible": false,
-                "protocol": "WMS",
-            },
-            "search": {
-                "protocol": "OpenSearch",
-                "url": "https://catalog.code-de-ref.eoc.dlr.de/opensearch/description.xml/?parentIdentifier=EOP:CODE-DE:S2_MSI_L1C",
-                "id": "EOP:CODE-DE:S2_MSI_L1C",
-                "histogramBinCount": 28,
-                "format": "application\/atom+xml",
-                "method": "GET",
-                "histogramThreshold": 600,
-                "lightweightBuckets": true,
-                "searchLimit": 600,
-                "loadMore": 600,
-                "searchEnabled": false,
-                "parameters": [
-                    {
-                        "type": "eo:productionStatus"
-                    },
-                    {
-                        "max": 100,
-                        "min": 0,
-                        "range": true,
-                        "type": "eo:cloudCover",
-                        "title": "Cloud Coverage in percent"
-                    },
-                    {
-                        "type": "eo:orbitDirection"
-                    },
-                    {
-                        "type": "eo:orbitNumber"
-                    },
-                    {
-                        "type": "eo:resolution",
-                        "options": [{
-                            "label": "10m",
-                            "value": "10",
-                        }, {
-                            "label": "20m",
-                            "value": "20",
-                        }, {
-                            "label": "60m",
-                            "value": "60",
-                        }]
-                    },
-                    {
-                        "type": "sort:sortBy"
-                    },
-                    {
-                        "type": "sort:sortDir"
-                    }
-                ],
-                "countZeroRecords": true,
-                "dropEmptyParameters": true,
-            },
-            "download": {
-                "protocol": "OpenSearch"
-            },
-        },
-        {
-            "id": "METOP-A_GOME-2_OL_DAILY_HCHO",
-            "displayName": "METOP-A_GOME-2_OL_DAILY_HCHO",
-            "displayColor": "#000",
-            "display": {
-                "id": "METOP-A_GOME-2_OL_DAILY_HCHO",
-                "visible": false,
-                "protocol": "WMS",
-                "urls": [
-                    "https://geoservice.dlr.de/eoc/atmosphere/wms?"
-                ],
-                "format": "image\/png",
-                "projection": "EPSG:4326",
-                "style": "",
-            },
-            "download": {
-                "protocol": "OpenSearch"
-            },
-        },
-        {
-            "id": "S2_MSI_L1C_3",
-            "link": "https://code-de.org\/en\/record\/39b6073d-7ef4-4aa9-a3e4-07f079709b52",
-            "displayName": "Sentinel-2 - OE - WMS only",
-            "displayColor": "#000",
-            "display": {
-                "id": "S2_MSI_L1C",
-                "visible": false,
-                "protocol": "WMS",
-                "urls": [
-                    "http://ows.eox.at/code-de_geoservice/Sentinel2/wms?"
-                ],
-                "format": "image\/png",
-                "projection": "EPSG:4326",
-                "style": "",
-                "cqlParameterName": "cql_filter",
-                "cqlMapping": {
-                    "eo:cloudCover": "cloudcover"
-                },
-                "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf"
-            },
-            "download": {
-                "protocol": "OpenSearch"
-            },
-        }
+//         {
+//             "id": "Sentinel-2-RE",
+//             "link": "https://code-de-ref.eoc.dlr.de/en/marketplace/search?filter[0]=type:dataset#body_1c322e7dc2ed34cca3ca20ef49889e80",
+//             "displayName": "Sentinel-2 - RE",
+//             "displayColor": "rgba(153, 0, 153, 1)",
+//             "display": {
+//                 "id": "S2_MSI_L1C",
+//                 // "ids": [
+//                 //     "S2_MSI_L1C_GRANULES",
+//                 //     "S2_MSI_L1C_10m",
+//                 // ],
+// //layers=S2_MSI_L1C_10m,S2_MSI_L1C_GRANULES
+// //&styles=Sentinel2_TCI_105,Sentinel2_fp_scale%20
+// //&cql_filter=INCLUDE;cloudcover%20BETWEEN%200%20AND%20100&DIM_cloudcover=0/100
+//                 "visible": false,
+//                 "protocol": "WMS",
+//                 "urls": [
+//                     "https://geoservice.code-de-ref.eoc.dlr.de/Sentinel2/wms?"
+//                 ],
+//                 "format": "image\/png",
+//                 "projection": "EPSG:4326",
+//                 "style": "",
+//                 "cqlParameterName": "cql_filter",
+//                 "cqlMapping": {
+//                     "eo:cloudCover": "cloudcover"
+//                 },
+//                 "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf",
+//                 "legendUrl": "https://eox.at/wp-content/uploads/2017/09/EOX_Logo.svg"
+//             },
+//             "search": {
+//                 "protocol": "OpenSearch",
+//                 "url": "https://catalog.code-de-ref.eoc.dlr.de/opensearch/description.xml/?parentIdentifier=EOP:CODE-DE:S2_MSI_L1C",
+//                 "id": "EOP:CODE-DE:S2_MSI_L1C",
+//                 "histogramBinCount": 28,
+//                 "format": "application\/atom+xml",
+//                 "method": "GET",
+//                 "histogramThreshold": 600,
+//                 "lightweightBuckets": true,
+//                 "searchLimit": 600,
+//                 "loadMore": 600,
+//                 "searchEnabled": true,
+//                 "parameters": [
+//                     {
+//                         "type": "eo:productionStatus"
+//                     },
+//                     {
+//                         "max": 100,
+//                         "min": 0,
+//                         "range": true,
+//                         "type": "eo:cloudCover",
+//                         "title": "Cloud Coverage in percent"
+//                     },
+//                     {
+//                         "type": "eo:orbitDirection"
+//                     },
+//                     {
+//                         "type": "eo:orbitNumber"
+//                     },
+//                     {
+//                         "type": "eo:resolution",
+//                         "options": [{
+//                             "label": "10m",
+//                             "value": "10",
+//                         }, {
+//                             "label": "20m",
+//                             "value": "20",
+//                         }, {
+//                             "label": "60m",
+//                             "value": "60",
+//                         }]
+//                     },
+//                     {
+//                         "type": "sort:sortBy"
+//                     },
+//                     {
+//                         "type": "sort:sortDir"
+//                     }
+//                 ],
+//                 "countZeroRecords": true,
+//                 "dropEmptyParameters": true,
+//             },
+//             "download": {
+//                 "protocol": "OpenSearch"
+//             },
+//             "fullResolution": {
+//                 "protocol": "WCS",
+//                 "id": "Sentinel2__S2_MSI_L1C_FULL",
+//                 "url": "https://geoservice.code-de-ref.eoc.dlr.de/Sentinel2/wcs?",
+//                 "cqlParameterName": "cql_filter",
+//                 "cqlMapping": {
+//                     "eo:cloudCover": "cloudcover",
+//                 },
+//                 "maxSizeWarning": 500,
+//                 "maxSizeResolution": 0.0000858306884765625,
+//                 "axisNames": [
+//                     'http://www.opengis.net/def/axis/OGC/0/Long',
+//                     'http://www.opengis.net/def/axis/OGC/0/Lat'
+//                 ],
+//                 "fields": [{
+//                   "name": "B01",
+//                   "identifier": "B01"
+//                 }, {
+//                   "name": "B02",
+//                   "identifier": "B02"
+//                 }, {
+//                   "name": "B03",
+//                   "identifier": "B03"
+//                 }, {
+//                   "name": "B04",
+//                   "identifier": "B04"
+//                 }, {
+//                   "name": "B05",
+//                   "identifier": "B05"
+//                 }, {
+//                   "name": "B06",
+//                   "identifier": "B06"
+//                 }, {
+//                   "name": "B07",
+//                   "identifier": "B07"
+//                 }, {
+//                   "name": "B08",
+//                   "identifier": "B08"
+//                 }, {
+//                   "name": "B09",
+//                   "identifier": "B09"
+//                 }, {
+//                   "name": "B10",
+//                   "identifier": "B10"
+//                 }, {
+//                   "name": "B11",
+//                   "identifier": "B11"
+//                 }, {
+//                   "name": "B12",
+//                   "identifier": "B12"
+//                 }, {
+//                   "name": "B8A",
+//                   "identifier": "B8A"
+//                 }],
+//                 "interpolations": [{
+//                   "name": "Nearest-Neighbor",
+//                   "identifier": "http://www.opengis.net/def/interpolation/OGC/1/nearest-neighbor"
+//                 }, {
+//                   "name": "Linear",
+//                   "identifier": "http://www.opengis.net/def/interpolation/OGC/1/linear"
+//                 }, {
+//                   "name": "Cubic",
+//                   "identifier": "http://www.opengis.net/def/interpolation/OGC/1/cubic"
+//                 }]
+//             },
+//             "processing": {
+//                 "url": "https://processing.code-de-ref.eoc.dlr.de/injectInputSelection",
+//                 "method": "form",
+//             }
+//         },
+        // {
+        //     "id": "S2_MSI_L1C_2",
+        //     "link": "https://code-de-ref.eoc.dlr.de/en/marketplace/search?filter[0]=type:dataset#body_38493c296f182e6bdee1b9677badb775",
+        //     "displayName": "Sentinel-2 - RE - OpenSearch only",
+        //     "displayColor": "rgba(103, 0, 103, 1)",
+        //     "display": {
+        //         "id": "S2_MSI_L1C",
+        //         "visible": false,
+        //         "protocol": "WMS",
+        //     },
+        //     "search": {
+        //         "protocol": "OpenSearch",
+        //         "url": "https://catalog.code-de-ref.eoc.dlr.de/opensearch/description.xml/?parentIdentifier=EOP:CODE-DE:S2_MSI_L1C",
+        //         "id": "EOP:CODE-DE:S2_MSI_L1C",
+        //         "histogramBinCount": 28,
+        //         "format": "application\/atom+xml",
+        //         "method": "GET",
+        //         "histogramThreshold": 600,
+        //         "lightweightBuckets": true,
+        //         "searchLimit": 600,
+        //         "loadMore": 600,
+        //         "searchEnabled": false,
+        //         "parameters": [
+        //             {
+        //                 "type": "eo:productionStatus"
+        //             },
+        //             {
+        //                 "max": 100,
+        //                 "min": 0,
+        //                 "range": true,
+        //                 "type": "eo:cloudCover",
+        //                 "title": "Cloud Coverage in percent"
+        //             },
+        //             {
+        //                 "type": "eo:orbitDirection"
+        //             },
+        //             {
+        //                 "type": "eo:orbitNumber"
+        //             },
+        //             {
+        //                 "type": "eo:resolution",
+        //                 "options": [{
+        //                     "label": "10m",
+        //                     "value": "10",
+        //                 }, {
+        //                     "label": "20m",
+        //                     "value": "20",
+        //                 }, {
+        //                     "label": "60m",
+        //                     "value": "60",
+        //                 }]
+        //             },
+        //             {
+        //                 "type": "sort:sortBy"
+        //             },
+        //             {
+        //                 "type": "sort:sortDir"
+        //             }
+        //         ],
+        //         "countZeroRecords": true,
+        //         "dropEmptyParameters": true,
+        //     },
+        //     "download": {
+        //         "protocol": "OpenSearch"
+        //     },
+        // },
+        // {
+        //     "id": "METOP-A_GOME-2_OL_DAILY_HCHO",
+        //     "displayName": "METOP-A_GOME-2_OL_DAILY_HCHO",
+        //     "displayColor": "#000",
+        //     "display": {
+        //         "id": "METOP-A_GOME-2_OL_DAILY_HCHO",
+        //         "visible": false,
+        //         "protocol": "WMS",
+        //         "urls": [
+        //             "https://geoservice.dlr.de/eoc/atmosphere/wms?"
+        //         ],
+        //         "format": "image\/png",
+        //         "projection": "EPSG:4326",
+        //         "style": "",
+        //     },
+        //     "download": {
+        //         "protocol": "OpenSearch"
+        //     },
+        // },
+        // {
+        //     "id": "S2_MSI_L1C_3",
+        //     "link": "https://code-de.org\/en\/record\/39b6073d-7ef4-4aa9-a3e4-07f079709b52",
+        //     "displayName": "Sentinel-2 - OE - WMS only",
+        //     "displayColor": "#000",
+        //     "display": {
+        //         "id": "S2_MSI_L1C",
+        //         "visible": false,
+        //         "protocol": "WMS",
+        //         "urls": [
+        //             "http://ows.eox.at/code-de_geoservice/Sentinel2/wms?"
+        //         ],
+        //         "format": "image\/png",
+        //         "projection": "EPSG:4326",
+        //         "style": "",
+        //         "cqlParameterName": "cql_filter",
+        //         "cqlMapping": {
+        //             "eo:cloudCover": "cloudcover"
+        //         },
+        //         "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf"
+        //     },
+        //     "download": {
+        //         "protocol": "OpenSearch"
+        //     },
+        // }
     ],
     "overlayLayers": [
         {
