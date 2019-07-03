@@ -529,6 +529,14 @@ input {
   left: 10px;
 }
 
+.record-details-view {
+  height: 100%;
+}
+
+.record-details-map {
+  height: calc(100% - 210px)!important;
+}
+
 .bootstrap-datetimepicker-widget {
   .datepicker {
     .active {
@@ -570,6 +578,7 @@ input {
 .modal {
   .modal-content {
     border: none;
+    height: 100%;
 
     .modal-header {
       background-color: $c_lo;
@@ -595,6 +604,10 @@ input {
       }
     }
 
+    .modal-body {
+      height: calc(100% - 120px);
+    }
+
     td, th {
       padding-left: 5px;
       padding-right: 5px;
@@ -608,6 +621,7 @@ input {
       background-color: $c_lo;
       color: $c_hi;
       border-top: none;
+      padding: 16px!important;
     }
   }
 }
