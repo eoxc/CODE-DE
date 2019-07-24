@@ -300,28 +300,28 @@
         {
             "id": "S1_SAR_L1_GRD",
             "link": "https://code-de.org\/en\/record\/01ca3984-b695-4ffd-ae43-611a3ef314ee",
-            "displayName": "Sentinel-1 SAR - Level 1 (Ground Range Detected)",
+            "displayName": "Sentinel-1 SAR - Level 1 GRD",
             "displayColor": "#7AC6CF",
             "display": {
                 "id": "S1_SAR_L1_GRD",
-                "visible": true,
+                "visible": false,
                 "protocol": "WMS",
                 "urls": [
-                    "http://ows.eox.at/code-de_geoservice/Sentinel1/wms?"
+                    "https://ows.eox.at/code-de_geoservice/Sentinel1/wms?"
                 ],
                 "format": "image\/png",
                 "projection": "EPSG:4326",
                 "style": "",
-                "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf"
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf",
             },
             "search": {
                 "protocol": "OpenSearch",
-                "url": "http://ows.eox.at/code-de_staging/eoxc/CODE-DE_S1_SAR_L1_GRD.osdd",
+                "url": "https://ows.eox.at/code-de_staging/eoxc/CODE-DE_S1_SAR_L1_GRD.osdd",
                 "id": "EOP:CODE-DE:S1_SAR_L1_GRD",
                 "histogramBinCount": 28,
                 "format": "application\/atom+xml",
                 "method": "GET",
-                "histogramThreshold": 600,
+                "histogramThreshold": 300,
                 "lightweightBuckets": true,
                 "searchLimit": 300,
                 "loadMore":300,
@@ -343,16 +343,165 @@
                         "type": "eo:polarisationMode"
                     },
                     {
-                        "type": "eo:polarisationChannels"
+                        "type": "eo:polarisationChannels",
+                        "options": [
+                            {
+                                "label": "HH",
+                                "value": "HH"
+                            },
+                            {
+                                "label": "VV",
+                                "value": "VV"
+                            },
+                            {
+                                "label": "HH,HV",
+                                "value": "HH,HV"
+                            },
+                            {
+                                "label": "VV,VH",
+                                "value": "VV,VH"
+                            }
+                        ]
                     },
                     {
                         "type": "eo:antennaLookDirection"
+                    },
+                    {
+                        "type": "eo:swathIdentifier",
+                        "options": [
+                            {
+                                "label": "IW",
+                                "value": "IW"
+                            },
+                            {
+                                "label": "IW1",
+                                "value": "IW1"
+                            },
+                            {
+                                "label": "IW2",
+                                "value": "IW2"
+                            },
+                            {
+                                "label": "IW3",
+                                "value": "IW3"
+                            },
+                            {
+                                "label": "EW",
+                                "value": "EW"
+                            },
+                            {
+                                "label": "EW1",
+                                "value": "EW1"
+                            },
+                            {
+                                "label": "EW2",
+                                "value": "EW2"
+                            },
+                            {
+                                "label": "EW3",
+                                "value": "EW3"
+                            },
+                            {
+                                "label": "EW4",
+                                "value": "EW4"
+                            },
+                            {
+                                "label": "EW5",
+                                "value": "EW5"
+                            },
+                            {
+                                "label": "SM",
+                                "value": "SM"
+                            },
+                            {
+                                "label": "S1",
+                                "value": "S1"
+                            },
+                            {
+                                "label": "S2",
+                                "value": "S2"
+                            },
+                            {
+                                "label": "S3",
+                                "value": "S3"
+                            },
+                            {
+                                "label": "S4",
+                                "value": "S4"
+                            },
+                            {
+                                "label": "S5",
+                                "value": "S5"
+                            },
+                            {
+                                "label": "S6",
+                                "value": "S6"
+                            },
+                            {
+                                "label": "WV",
+                                "value": "WV"
+                            },
+                            {
+                                "label": "WV1",
+                                "value": "WV1"
+                            },
+                            {
+                                "label": "WV2",
+                                "value": "WV2"
+                            }
+                        ]
                     },
                     {
                         "type": "eo:minimumIncidenceAngle"
                     },
                     {
                         "type": "eo:maximumIncidenceAngle"
+                    },
+                    {
+                        "type": "eo:sensorMode",
+                        "options": [
+                            {
+                                "label": "EW_DP",
+                                "value": "EW_DP"
+                            },
+                            {
+                                "label": "EW_SP",
+                                "value": "EW_SP"
+                            },
+                            {
+                                "label": "IW_DP",
+                                "value": "IW_DP"
+                            },
+                            {
+                                "label": "IW_SP",
+                                "value": "IW_SP"
+                            },
+                            {
+                                "label": "SM_DP",
+                                "value": "SM_DP"
+                            },
+                            {
+                                "label": "SM_SP",
+                                "value": "SM_SP"
+                            },
+                            {
+                                "label": "WV_SP",
+                                "value": "WV_SP"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:platformSerialIdentifier",
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ]
                     },
                     {
                         "type": "eo:onlineState"
@@ -374,19 +523,19 @@
         {
             "id": "S1_SAR_L1_SLC",
             "link": "https://code-de.org\/en\/record\/39f11eeb-8aa6-45dc-8703-69d4bb8a4b3e",
-            "displayName": "Sentinel-1 SAR - Level 1 (Single-Look Complex)",
+            "displayName": "Sentinel-1 SAR - Level 1 SLC",
             "displayColor": "#D9534F",
             "display": {
                 "id": "S1_SAR_L1_SLC",
                 "visible": false,
                 "protocol": "WMS",
                 "urls": [
-                    "http://ows.eox.at/code-de_geoservice/Sentinel1/wms?"
+                    "https://ows.eox.at/code-de_geoservice/Sentinel1/wms?"
                 ],
                 "format": "image\/png",
                 "projection": "EPSG:4326",
                 "style": "",
-                "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf",
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf",
                 "legendUrl": "https://eox.at/wp-content/uploads/2017/09/EOX_Logo.svg"
             },
             "search": {
@@ -396,7 +545,7 @@
                 "histogramBinCount": 28,
                 "format": "application\/atom+xml",
                 "method": "GET",
-                "histogramThreshold": 600,
+                "histogramThreshold": 300,
                 "lightweightBuckets": true,
                 "searchLimit": 300,
                 "loadMore":300,
@@ -418,7 +567,156 @@
                         "type": "eo:polarisationMode"
                     },
                     {
-                        "type": "eo:polarisationChannels"
+                        "type": "eo:polarisationChannels",
+                        "options": [
+                            {
+                                "label": "HH",
+                                "value": "HH"
+                            },
+                            {
+                                "label": "VV",
+                                "value": "VV"
+                            },
+                            {
+                                "label": "HH,HV",
+                                "value": "HH,HV"
+                            },
+                            {
+                                "label": "VV,VH",
+                                "value": "VV,VH"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:swathIdentifier",
+                        "options": [
+                            {
+                                "label": "IW",
+                                "value": "IW"
+                            },
+                            {
+                                "label": "IW1",
+                                "value": "IW1"
+                            },
+                            {
+                                "label": "IW2",
+                                "value": "IW2"
+                            },
+                            {
+                                "label": "IW3",
+                                "value": "IW3"
+                            },
+                            {
+                                "label": "EW",
+                                "value": "EW"
+                            },
+                            {
+                                "label": "EW1",
+                                "value": "EW1"
+                            },
+                            {
+                                "label": "EW2",
+                                "value": "EW2"
+                            },
+                            {
+                                "label": "EW3",
+                                "value": "EW3"
+                            },
+                            {
+                                "label": "EW4",
+                                "value": "EW4"
+                            },
+                            {
+                                "label": "EW5",
+                                "value": "EW5"
+                            },
+                            {
+                                "label": "SM",
+                                "value": "SM"
+                            },
+                            {
+                                "label": "S1",
+                                "value": "S1"
+                            },
+                            {
+                                "label": "S2",
+                                "value": "S2"
+                            },
+                            {
+                                "label": "S3",
+                                "value": "S3"
+                            },
+                            {
+                                "label": "S4",
+                                "value": "S4"
+                            },
+                            {
+                                "label": "S5",
+                                "value": "S5"
+                            },
+                            {
+                                "label": "S6",
+                                "value": "S6"
+                            },
+                            {
+                                "label": "WV",
+                                "value": "WV"
+                            },
+                            {
+                                "label": "WV1",
+                                "value": "WV1"
+                            },
+                            {
+                                "label": "WV2",
+                                "value": "WV2"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:sensorMode",
+                        "options": [
+                            {
+                                "label": "EW_DP",
+                                "value": "EW_DP"
+                            },
+                            {
+                                "label": "EW_SP",
+                                "value": "EW_SP"
+                            },
+                            {
+                                "label": "IW_DP",
+                                "value": "IW_DP"
+                            },
+                            {
+                                "label": "IW_SP",
+                                "value": "IW_SP"
+                            },
+                            {
+                                "label": "SM_DP",
+                                "value": "SM_DP"
+                            },
+                            {
+                                "label": "SM_SP",
+                                "value": "SM_SP"
+                            },
+                            {
+                                "label": "WV_SP",
+                                "value": "WV_SP"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:platformSerialIdentifier",
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ]
                     },
                     {
                         "type": "eo:antennaLookDirection"
@@ -444,24 +742,28 @@
             },
             "download": {
                 "protocol": "OpenSearch"
-            }
+            },
+            "processing": {
+                "url": "https://processing.code-de.org/injectInputSelection",
+                "method": "form"
+            },
         },
         {
             "id": "S1_SAR_L2_OCN",
             "link": "https://code-de.org\/en\/record\/44f2a392-0041-49c0-b943-a96558cbc023",
-            "displayName": "Sentinel-1 SAR - Level 2 (Ocean Product)",
+            "displayName": "Sentinel-1 SAR - Level 2 OCN",
             "displayColor": "#5CB85C",
             "display": {
                 "id": "S1_SAR_L2_OCN",
                 "visible": false,
                 "protocol": "WMS",
                 "urls": [
-                    "http://ows.eox.at/code-de_geoservice/Sentinel1/wms?"
+                    "https://ows.eox.at/code-de_geoservice/Sentinel1/wms?"
                 ],
                 "format": "image\/png",
                 "projection": "EPSG:4326",
                 "style": "",
-                "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf"
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf",
             },
             "search": {
                 "protocol": "OpenSearch",
@@ -470,7 +772,7 @@
                 "histogramBinCount": 28,
                 "format": "application\/atom+xml",
                 "method": "GET",
-                "histogramThreshold": 600,
+                "histogramThreshold": 300,
                 "lightweightBuckets": true,
                 "searchLimit": 300,
                 "loadMore":300,
@@ -492,7 +794,156 @@
                         "type": "eo:polarisationMode"
                     },
                     {
-                        "type": "eo:polarisationChannels"
+                        "type": "eo:polarisationChannels",
+                        "options": [
+                            {
+                                "label": "HH",
+                                "value": "HH"
+                            },
+                            {
+                                "label": "VV",
+                                "value": "VV"
+                            },
+                            {
+                                "label": "HH,HV",
+                                "value": "HH,HV"
+                            },
+                            {
+                                "label": "VV,VH",
+                                "value": "VV,VH"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:swathIdentifier",
+                        "options": [
+                            {
+                                "label": "IW",
+                                "value": "IW"
+                            },
+                            {
+                                "label": "IW1",
+                                "value": "IW1"
+                            },
+                            {
+                                "label": "IW2",
+                                "value": "IW2"
+                            },
+                            {
+                                "label": "IW3",
+                                "value": "IW3"
+                            },
+                            {
+                                "label": "EW",
+                                "value": "EW"
+                            },
+                            {
+                                "label": "EW1",
+                                "value": "EW1"
+                            },
+                            {
+                                "label": "EW2",
+                                "value": "EW2"
+                            },
+                            {
+                                "label": "EW3",
+                                "value": "EW3"
+                            },
+                            {
+                                "label": "EW4",
+                                "value": "EW4"
+                            },
+                            {
+                                "label": "EW5",
+                                "value": "EW5"
+                            },
+                            {
+                                "label": "SM",
+                                "value": "SM"
+                            },
+                            {
+                                "label": "S1",
+                                "value": "S1"
+                            },
+                            {
+                                "label": "S2",
+                                "value": "S2"
+                            },
+                            {
+                                "label": "S3",
+                                "value": "S3"
+                            },
+                            {
+                                "label": "S4",
+                                "value": "S4"
+                            },
+                            {
+                                "label": "S5",
+                                "value": "S5"
+                            },
+                            {
+                                "label": "S6",
+                                "value": "S6"
+                            },
+                            {
+                                "label": "WV",
+                                "value": "WV"
+                            },
+                            {
+                                "label": "WV1",
+                                "value": "WV1"
+                            },
+                            {
+                                "label": "WV2",
+                                "value": "WV2"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:sensorMode",
+                        "options": [
+                            {
+                                "label": "EW_DP",
+                                "value": "EW_DP"
+                            },
+                            {
+                                "label": "EW_SP",
+                                "value": "EW_SP"
+                            },
+                            {
+                                "label": "IW_DP",
+                                "value": "IW_DP"
+                            },
+                            {
+                                "label": "IW_SP",
+                                "value": "IW_SP"
+                            },
+                            {
+                                "label": "SM_DP",
+                                "value": "SM_DP"
+                            },
+                            {
+                                "label": "SM_SP",
+                                "value": "SM_SP"
+                            },
+                            {
+                                "label": "WV_SP",
+                                "value": "WV_SP"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:platformSerialIdentifier",
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ]
                     },
                     {
                         "type": "eo:antennaLookDirection"
@@ -521,16 +972,372 @@
             }
         },
         {
+            "id": "S3_OLCI_L1",
+            "link": "https://code-de.org\/en\/record\/8322a618-08ff-485b-97fd-1435b8d5854a",
+            "displayName": "Sentinel-3 OLCI - L1B ToA Radiance",
+            "displayColor": "#99F8FF",
+            "display": {
+                "format": "image/png",
+                "projection": "EPSG:4326",
+                "style": "",
+                "id": "S3_OLCI_L1",
+                "visible": false,
+                "protocol": "WMS",
+                "urls": [
+                    "https://ows.eox.at/code-de_geoservice/Sentinel3/wms?"
+                ],
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf"
+            },
+            "search": {
+                "protocol": "OpenSearch",
+                "histogramBinCount": 28,
+                "loadMore": 300,
+                "method": "GET",
+                "format": "application/atom+xml",
+                "histogramThreshold": 300,
+                "lightweightBuckets": true,
+                "searchLimit": 300,
+                "countZeroRecords": true,
+                "dropEmptyParameters": true,
+                "parameters": [
+                    {
+                        "type": "eo:orbitDirection"
+                    },
+                    {
+                        "type": "eo:resolution",
+                        "options": [
+                            {
+                                "label": "Full Resolution",
+                                "value": "300]"
+                            },
+                            {
+                                "label": "Reduced Resolution",
+                                "value": "[1200"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:platformSerialIdentifier",
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:onlineState"
+                    },
+                    {
+                        "type": "sort:sortBy"
+                    },
+                    {
+                        "type": "sort:sortDir"
+                    }
+                ],
+                "url": "https://ows.eox.at/code-de_staging/eoxc/CODE-DE_S3_OLCI_L1.osdd",
+                "id": "EOP:CODE-DE:S3_OLCI_L1"
+            },
+            "download": {
+                "protocol": "OpenSearch"
+            },
+            "processing": {
+                "url": "https://processing.code-de.org/injectInputSelection",
+                "method": "form"
+            },
+        },
+        {
+            "display": {
+                "format": "image/png",
+                "projection": "EPSG:4326",
+                "style": "",
+                "id": "S3_OLCI_L2_LAN",
+                "visible": false,
+                "protocol": "WMS",
+                "urls": [
+                    "https://ows.eox.at/code-de_geoservice/Sentinel3/wms?"
+                ],
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf"
+            },
+            "search": {
+                "protocol": "OpenSearch",
+                "histogramBinCount": 28,
+                "loadMore": 300,
+                "method": "GET",
+                "format": "application/atom+xml",
+                "histogramThreshold": 300,
+                "lightweightBuckets": true,
+                "searchLimit": 300,
+                "countZeroRecords": true,
+                "dropEmptyParameters": true,
+                "parameters": [
+                    {
+                        "type": "eo:orbitDirection"
+                    },
+                    {
+                        "type": "eo:resolution",
+                        "options": [
+                            {
+                                "label": "Full Resolution",
+                                "value": "300]"
+                            },
+                            {
+                                "label": "Reduced Resolution",
+                                "value": "[1200"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:platformSerialIdentifier",
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:onlineState"
+                    },
+                    {
+                        "type": "sort:sortBy"
+                    },
+                    {
+                        "type": "sort:sortDir"
+                    }
+                ],
+                "url": "https://ows.eox.at/code-de_staging/eoxc/CODE-DE_S3_OLCI_L2_LAN.osdd",
+                "id": "EOP:CODE-DE:S3_OLCI_L2_LAN"
+            },
+            "download": {
+                "protocol": "OpenSearch"
+            },
+            "processing": {
+                "url": "https://processing.code-de.org/injectInputSelection",
+                "method": "form"
+            },
+            "id": "S3_OLCI_L2_LAN",
+            "link": "https://code-de.org\/en\/record\/e1cb12b7-33fa-4975-9635-98de18a3e251",
+            "displayName": "Sentinel-3 OLCI - L2 Land Product",
+            "displayColor": "#FF5F5F"
+        },
+        {
+            "display": {
+                "format": "image/png",
+                "projection": "EPSG:4326",
+                "style": "",
+                "id": "S3_SLSTR_L1_RBT",
+                "visible": false,
+                "protocol": "WMS",
+                "urls": [
+                    "https://ows.eox.at/code-de_geoservice/Sentinel3/wms?"
+                ],
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf"
+            },
+            "search": {
+                "protocol": "OpenSearch",
+                "histogramBinCount": 28,
+                "loadMore": 300,
+                "method": "GET",
+                "format": "application/atom+xml",
+                "histogramThreshold": 300,
+                "lightweightBuckets": true,
+                "searchLimit": 300,
+                "countZeroRecords": true,
+                "dropEmptyParameters": true,
+                "parameters": [
+                    {
+                        "type": "eo:orbitDirection"
+                    },
+                    {
+                        "type": "eo:platformSerialIdentifier",
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:onlineState"
+                    },
+                    {
+                        "type": "sort:sortBy"
+                    },
+                    {
+                        "type": "sort:sortDir"
+                    }
+                ],
+                "url": "https://ows.eox.at/code-de_staging/eoxc/CODE-DE_S3_SLSTR_L1_RBT.osdd",
+                "id": "EOP:CODE-DE:S3_SLSTR_L1_RBT"
+            },
+            "download": {
+                "protocol": "OpenSearch"
+            },
+            "processing": {
+                "url": "https://processing.code-de.org/injectInputSelection",
+                "method": "form"
+            },
+            "id": "S3_SLSTR_L1_RBT",
+            "link": "https://code-de.org\/en\/record\/c2a7e7bf-23f8-406e-b38c-69691925db14",
+            "displayName": "Sentinel-3 SLSTR - L1B ToA RBT",
+            "displayColor": "#83FF83"
+        },
+        {
+            "display": {
+                "format": "image/png",
+                "projection": "EPSG:4326",
+                "style": "",
+                "id": "S3_SLSTR_L2_LST",
+                "visible": false,
+                "protocol": "WMS",
+                "urls": [
+                    "https://ows.eox.at/code-de_geoservice/Sentinel3/wms?"
+                ],
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf"
+            },
+            "search": {
+                "protocol": "OpenSearch",
+                "histogramBinCount": 28,
+                "loadMore": 300,
+                "method": "GET",
+                "format": "application/atom+xml",
+                "histogramThreshold": 300,
+                "lightweightBuckets": true,
+                "searchLimit": 300,
+                "countZeroRecords": true,
+                "dropEmptyParameters": true,
+                "parameters": [
+                    {
+                        "type": "eo:orbitDirection"
+                    },
+                    {
+                        "type": "eo:platformSerialIdentifier",
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:onlineState"
+                    },
+                    {
+                        "type": "sort:sortBy"
+                    },
+                    {
+                        "type": "sort:sortDir"
+                    }
+                ],
+                "url": "https://ows.eox.at/code-de_staging/eoxc/CODE-DE_S3_SLSTR_L2_LST.osdd",
+                "id": "EOP:CODE-DE:S3_SLSTR_L2_LST"
+            },
+            "download": {
+                "protocol": "OpenSearch"
+            },
+            "processing": {
+                "url": "https://processing.code-de.org/injectInputSelection",
+                "method": "form"
+            },
+            "id": "S3_SLSTR_L2_LST",
+            "link": "https://code-de.org\/en\/record\/6478a1b3-ad04-4451-b65a-b4809f33194b",
+            "displayName": "Sentinel-3 SLSTR - L2 Land Product",
+            "displayColor": "#FFC294"
+        },
+        {
+            "display": {
+                "format": "image/png",
+                "projection": "EPSG:4326",
+                "style": "",
+                "id": "S3_SRAL_L2_LAN",
+                "visible": false,
+                "protocol": "WMS",
+                "urls": [
+                    "https://ows.eox.at/code-de_geoservice/Sentinel3/wms?"
+                ],
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf"
+            },
+            "search": {
+                "protocol": "OpenSearch",
+                "histogramBinCount": 28,
+                "loadMore": 300,
+                "method": "GET",
+                "format": "application/atom+xml",
+                "histogramThreshold": 300,
+                "lightweightBuckets": true,
+                "searchLimit": 300,
+                "countZeroRecords": true,
+                "dropEmptyParameters": true,
+                "parameters": [
+                    {
+                        "type": "eo:orbitDirection"
+                    },
+                    {
+                        "type": "eo:platformSerialIdentifier",
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "eo:onlineState"
+                    },
+                    {
+                        "type": "sort:sortBy"
+                    },
+                    {
+                        "type": "sort:sortDir"
+                    }
+                ],
+                "url": "https://ows.eox.at/code-de_staging/eoxc/CODE-DE_S3_SRAL_L2_LAN.osdd",
+                "id": "EOP:CODE-DE:S3_SRAL_L2_LAN"
+            },
+            "download": {
+                "protocol": "OpenSearch"
+            },
+            "processing": {
+                "url": "https://processing.code-de.org/injectInputSelection",
+                "method": "form"
+            },
+            "id": "S3_SRAL_L2_LAN",
+            "link": "https://code-de.org\/en/\record\/c92f1d26-819a-4713-96aa-6aa4a3c34821",
+            "displayName": "Sentinel-3 SRAL/MWR - L2 Land Product",
+            "displayColor": "#FCFF83"
+        },
+        {
             "id": "S2_MSI_L1C",
             "link": "https://code-de.org\/en\/record\/39b6073d-7ef4-4aa9-a3e4-07f079709b52",
-            "displayName": "Sentinel-2 - OE",
+            "displayName": "Sentinel-2 MSI - Level 1C ToA Reflectance",
             "displayColor": "#F0AD4E",
             "display": {
                 "id": "S2_MSI_L1C",
                 "visible": true,
                 "protocol": "WMS",
                 "urls": [
-                    "http://ows.eox.at/code-de_geoservice/Sentinel2/wms?"
+                    "https://ows.eox.at/code-de_geoservice/Sentinel2/wms?"
                 ],
                 "format": "image\/png",
                 "projection": "EPSG:4326",
@@ -539,31 +1346,19 @@
                 "cqlMapping": {
                     "eo:cloudCover": "cloudcover"
                 },
-                "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf",
-                "options": [{
-                    "name": "Style",
-                    "target": "display.style",
-                    "values": [{
-                        "label": "RGB",
-                        "value": ""
-                    },
-                    {
-                        "label": "False Color",
-                        "value": "false"
-                    }]
-                }],
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf",
             },
             "search": {
                 "protocol": "OpenSearch",
-                "url": "http://ows.eox.at/code-de_staging/eoxc/CODE-DE_S2_MSI_L1C.osdd",
+                "url": "https://ows.eox.at/code-de_staging/eoxc/CODE-DE_S2_MSI_L1C.osdd",
                 "id": "EOP:CODE-DE:S2_MSI_L1C",
                 "histogramBinCount": 28,
                 "format": "application\/atom+xml",
                 "method": "GET",
-                "histogramThreshold": 600,
+                "histogramThreshold": 300,
                 "lightweightBuckets": true,
-                "searchLimit": 600,
-                "loadMore": 600,
+                "searchLimit": 300,
+                "loadMore": 300,
                 "searchEnabled": false,
                 "parameters": [
                     {
@@ -580,7 +1375,21 @@
                         "type": "eo:orbitDirection"
                     },
                     {
+                        "title": "Choose a Orbit Number between 0 and 143",
                         "type": "eo:orbitNumber"
+                    },
+                    {
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ],
+                        "type": "eo:platformSerialIdentifier"
                     },
                     {
                         "type": "eo:resolution",
@@ -622,8 +1431,8 @@
                 "maxSizeWarning": 500,
                 "maxSizeResolution": 0.0000858306884765625,
                 "axisNames": [
-                    'http://www.opengis.net/def/axis/OGC/0/Long',
-                    'http://www.opengis.net/def/axis/OGC/0/Lat'
+                    'Long',
+                    'Lat'
                 ],
                 "fields": [{
                   "name": "B01",
@@ -676,271 +1485,88 @@
                   "identifier": "http://www.opengis.net/def/interpolation/OGC/1/cubic"
                 }]
             },
+            "processing": {
+                "url": "https://processing.code-de.org/injectInputSelection",
+                "method": "form"
+            },
         },
-//         {
-//             "id": "Sentinel-2-RE",
-//             "link": "https://code-de-ref.eoc.dlr.de/en/marketplace/search?filter[0]=type:dataset#body_1c322e7dc2ed34cca3ca20ef49889e80",
-//             "displayName": "Sentinel-2 - RE",
-//             "displayColor": "rgba(153, 0, 153, 1)",
-//             "display": {
-//                 "id": "S2_MSI_L1C",
-//                 // "ids": [
-//                 //     "S2_MSI_L1C_GRANULES",
-//                 //     "S2_MSI_L1C_10m",
-//                 // ],
-// //layers=S2_MSI_L1C_10m,S2_MSI_L1C_GRANULES
-// //&styles=Sentinel2_TCI_105,Sentinel2_fp_scale%20
-// //&cql_filter=INCLUDE;cloudcover%20BETWEEN%200%20AND%20100&DIM_cloudcover=0/100
-//                 "visible": false,
-//                 "protocol": "WMS",
-//                 "urls": [
-//                     "https://geoservice.code-de-ref.eoc.dlr.de/Sentinel2/wms?"
-//                 ],
-//                 "format": "image\/png",
-//                 "projection": "EPSG:4326",
-//                 "style": "",
-//                 "cqlParameterName": "cql_filter",
-//                 "cqlMapping": {
-//                     "eo:cloudCover": "cloudcover"
-//                 },
-//                 "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf",
-//                 "legendUrl": "https://eox.at/wp-content/uploads/2017/09/EOX_Logo.svg"
-//             },
-//             "search": {
-//                 "protocol": "OpenSearch",
-//                 "url": "https://catalog.code-de-ref.eoc.dlr.de/opensearch/description.xml/?parentIdentifier=EOP:CODE-DE:S2_MSI_L1C",
-//                 "id": "EOP:CODE-DE:S2_MSI_L1C",
-//                 "histogramBinCount": 28,
-//                 "format": "application\/atom+xml",
-//                 "method": "GET",
-//                 "histogramThreshold": 600,
-//                 "lightweightBuckets": true,
-//                 "searchLimit": 600,
-//                 "loadMore": 600,
-//                 "searchEnabled": true,
-//                 "parameters": [
-//                     {
-//                         "type": "eo:productionStatus"
-//                     },
-//                     {
-//                         "max": 100,
-//                         "min": 0,
-//                         "range": true,
-//                         "type": "eo:cloudCover",
-//                         "title": "Cloud Coverage in percent"
-//                     },
-//                     {
-//                         "type": "eo:orbitDirection"
-//                     },
-//                     {
-//                         "type": "eo:orbitNumber"
-//                     },
-//                     {
-//                         "type": "eo:resolution",
-//                         "options": [{
-//                             "label": "10m",
-//                             "value": "10",
-//                         }, {
-//                             "label": "20m",
-//                             "value": "20",
-//                         }, {
-//                             "label": "60m",
-//                             "value": "60",
-//                         }]
-//                     },
-//                     {
-//                         "type": "sort:sortBy"
-//                     },
-//                     {
-//                         "type": "sort:sortDir"
-//                     }
-//                 ],
-//                 "countZeroRecords": true,
-//                 "dropEmptyParameters": true,
-//             },
-//             "download": {
-//                 "protocol": "OpenSearch"
-//             },
-//             "fullResolution": {
-//                 "protocol": "WCS",
-//                 "id": "Sentinel2__S2_MSI_L1C_FULL",
-//                 "url": "https://geoservice.code-de-ref.eoc.dlr.de/Sentinel2/wcs?",
-//                 "cqlParameterName": "cql_filter",
-//                 "cqlMapping": {
-//                     "eo:cloudCover": "cloudcover",
-//                 },
-//                 "maxSizeWarning": 500,
-//                 "maxSizeResolution": 0.0000858306884765625,
-//                 "axisNames": [
-//                     'http://www.opengis.net/def/axis/OGC/0/Long',
-//                     'http://www.opengis.net/def/axis/OGC/0/Lat'
-//                 ],
-//                 "fields": [{
-//                   "name": "B01",
-//                   "identifier": "B01"
-//                 }, {
-//                   "name": "B02",
-//                   "identifier": "B02"
-//                 }, {
-//                   "name": "B03",
-//                   "identifier": "B03"
-//                 }, {
-//                   "name": "B04",
-//                   "identifier": "B04"
-//                 }, {
-//                   "name": "B05",
-//                   "identifier": "B05"
-//                 }, {
-//                   "name": "B06",
-//                   "identifier": "B06"
-//                 }, {
-//                   "name": "B07",
-//                   "identifier": "B07"
-//                 }, {
-//                   "name": "B08",
-//                   "identifier": "B08"
-//                 }, {
-//                   "name": "B09",
-//                   "identifier": "B09"
-//                 }, {
-//                   "name": "B10",
-//                   "identifier": "B10"
-//                 }, {
-//                   "name": "B11",
-//                   "identifier": "B11"
-//                 }, {
-//                   "name": "B12",
-//                   "identifier": "B12"
-//                 }, {
-//                   "name": "B8A",
-//                   "identifier": "B8A"
-//                 }],
-//                 "interpolations": [{
-//                   "name": "Nearest-Neighbor",
-//                   "identifier": "http://www.opengis.net/def/interpolation/OGC/1/nearest-neighbor"
-//                 }, {
-//                   "name": "Linear",
-//                   "identifier": "http://www.opengis.net/def/interpolation/OGC/1/linear"
-//                 }, {
-//                   "name": "Cubic",
-//                   "identifier": "http://www.opengis.net/def/interpolation/OGC/1/cubic"
-//                 }]
-//             },
-//             "processing": {
-//                 "url": "https://processing.code-de-ref.eoc.dlr.de/injectInputSelection",
-//                 "method": "form",
-//             }
-//         },
-        // {
-        //     "id": "S2_MSI_L1C_2",
-        //     "link": "https://code-de-ref.eoc.dlr.de/en/marketplace/search?filter[0]=type:dataset#body_38493c296f182e6bdee1b9677badb775",
-        //     "displayName": "Sentinel-2 - RE - OpenSearch only",
-        //     "displayColor": "rgba(103, 0, 103, 1)",
-        //     "display": {
-        //         "id": "S2_MSI_L1C",
-        //         "visible": false,
-        //         "protocol": "WMS",
-        //     },
-        //     "search": {
-        //         "protocol": "OpenSearch",
-        //         "url": "https://catalog.code-de-ref.eoc.dlr.de/opensearch/description.xml/?parentIdentifier=EOP:CODE-DE:S2_MSI_L1C",
-        //         "id": "EOP:CODE-DE:S2_MSI_L1C",
-        //         "histogramBinCount": 28,
-        //         "format": "application\/atom+xml",
-        //         "method": "GET",
-        //         "histogramThreshold": 600,
-        //         "lightweightBuckets": true,
-        //         "searchLimit": 600,
-        //         "loadMore": 600,
-        //         "searchEnabled": false,
-        //         "parameters": [
-        //             {
-        //                 "type": "eo:productionStatus"
-        //             },
-        //             {
-        //                 "max": 100,
-        //                 "min": 0,
-        //                 "range": true,
-        //                 "type": "eo:cloudCover",
-        //                 "title": "Cloud Coverage in percent"
-        //             },
-        //             {
-        //                 "type": "eo:orbitDirection"
-        //             },
-        //             {
-        //                 "type": "eo:orbitNumber"
-        //             },
-        //             {
-        //                 "type": "eo:resolution",
-        //                 "options": [{
-        //                     "label": "10m",
-        //                     "value": "10",
-        //                 }, {
-        //                     "label": "20m",
-        //                     "value": "20",
-        //                 }, {
-        //                     "label": "60m",
-        //                     "value": "60",
-        //                 }]
-        //             },
-        //             {
-        //                 "type": "sort:sortBy"
-        //             },
-        //             {
-        //                 "type": "sort:sortDir"
-        //             }
-        //         ],
-        //         "countZeroRecords": true,
-        //         "dropEmptyParameters": true,
-        //     },
-        //     "download": {
-        //         "protocol": "OpenSearch"
-        //     },
-        // },
-        // {
-        //     "id": "METOP-A_GOME-2_OL_DAILY_HCHO",
-        //     "displayName": "METOP-A_GOME-2_OL_DAILY_HCHO",
-        //     "displayColor": "#000",
-        //     "display": {
-        //         "id": "METOP-A_GOME-2_OL_DAILY_HCHO",
-        //         "visible": false,
-        //         "protocol": "WMS",
-        //         "urls": [
-        //             "https://geoservice.dlr.de/eoc/atmosphere/wms?"
-        //         ],
-        //         "format": "image\/png",
-        //         "projection": "EPSG:4326",
-        //         "style": "",
-        //     },
-        //     "download": {
-        //         "protocol": "OpenSearch"
-        //     },
-        // },
-        // {
-        //     "id": "S2_MSI_L1C_3",
-        //     "link": "https://code-de.org\/en\/record\/39b6073d-7ef4-4aa9-a3e4-07f079709b52",
-        //     "displayName": "Sentinel-2 - OE - WMS only",
-        //     "displayColor": "#000",
-        //     "display": {
-        //         "id": "S2_MSI_L1C",
-        //         "visible": false,
-        //         "protocol": "WMS",
-        //         "urls": [
-        //             "http://ows.eox.at/code-de_geoservice/Sentinel2/wms?"
-        //         ],
-        //         "format": "image\/png",
-        //         "projection": "EPSG:4326",
-        //         "style": "",
-        //         "cqlParameterName": "cql_filter",
-        //         "cqlMapping": {
-        //             "eo:cloudCover": "cloudcover"
-        //         },
-        //         "attribution": "Nutzungsbedingungen: https:\/\/scihub.copernicus.eu\/twiki\/pub\/SciHubWebPortal\/TermsConditions\/TC_Sentinel_Data_31072014.pdf"
-        //     },
-        //     "download": {
-        //         "protocol": "OpenSearch"
-        //     },
-        // }
+        {            
+            "id": "S2_MSI_L2A",
+            "link": "https://code-de.org\/en\/record\/56ba5473-08a8-40c1-b045-9e364c2a64f6",
+            "displayName": "Sentinel-2 MSI - Level 2A BoA Reflectance",
+            "displayColor": "#C1D14B",
+            "display": {
+                "format": "image/png",
+                "projection": "EPSG:4326",
+                "style": "",
+                "id": "S2_MSI_L2A",
+                "visible": false,
+                "protocol": "WMS",
+                "urls": [
+                    "https://ows.eox.at/code-de_geoservice/Sentinel2/wms?"
+                ],
+                "attribution": "Nutzungsbedingungen: https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/TC_Sentinel_Data_31072014.pdf https://code-de.org/en/terms/CODE-DE_Terms.pdf",
+            },
+            "search": {
+                "protocol": "OpenSearch",
+                "histogramBinCount": 28,
+                "loadMore": 300,
+                "method": "GET",
+                "format": "application/atom+xml",
+                "histogramThreshold": 300,
+                "lightweightBuckets": true,
+                "searchLimit": 300,
+                "countZeroRecords": true,
+                "dropEmptyParameters": true,
+                "parameters": [
+                    {
+                        "type": "eo:orbitDirection"
+                    },
+                    {
+                        "title": "Choose a Orbit Number between 0 and 143",
+                        "type": "eo:orbitNumber"
+                    },
+                    {
+                        "max": 100,
+                        "min": 0,
+                        "range": true,
+                        "title": "Cloud Coverage in percent",
+                        "type": "eo:cloudCover"
+                    },
+                    {
+                        "options": [
+                            {
+                                "label": "A",
+                                "value": "A"
+                            },
+                            {
+                                "label": "B",
+                                "value": "B"
+                            }
+                        ],
+                        "type": "eo:platformSerialIdentifier"
+                    },
+                    {
+                        "type": "eo:onlineState"
+                    },
+                    {
+                        "type": "sort:sortBy"
+                    },
+                    {
+                        "type": "sort:sortDir"
+                    }
+                ],
+                "url": "https://ows.eox.at/code-de_staging/eoxc/CODE-DE_S2_MSI_L2A.osdd",
+                "id": "EOP:CODE-DE:S2_MSI_L2A"
+            },
+            "download": {
+                "protocol": "OpenSearch"
+            },
+            "processing": {
+                "url": "https://processing.code-de.org/injectInputSelection",
+                "method": "form"
+            },
+        },
     ],
     "overlayLayers": [
         {
@@ -955,7 +1581,9 @@
                     "//b.tiles.maps.eox.at/wmts/",
                     "//c.tiles.maps.eox.at/wmts/",
                     "//d.tiles.maps.eox.at/wmts/",
-                    "//e.tiles.maps.eox.at/wmts/"
+                    "//e.tiles.maps.eox.at/wmts/",
+                    "//f.tiles.maps.eox.at/wmts/",
+                    "//g.tiles.maps.eox.at/wmts/"
                 ],
                 "matrixSet": "WGS84",
                 "style": "default",
@@ -975,7 +1603,9 @@
                     "//b.tiles.maps.eox.at/wmts/",
                     "//c.tiles.maps.eox.at/wmts/",
                     "//d.tiles.maps.eox.at/wmts/",
-                    "//e.tiles.maps.eox.at/wmts/"
+                    "//e.tiles.maps.eox.at/wmts/",
+                    "//f.tiles.maps.eox.at/wmts/",
+                    "//g.tiles.maps.eox.at/wmts/"
                 ],
                 "matrixSet": "WGS84",
                 "style": "default",
