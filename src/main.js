@@ -1,10 +1,10 @@
 // require styles
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import $ from 'jquery';
 import 'jquery-ui';
 import es6Promise from 'es6-promise';
 
+import 'font-awesome/scss/font-awesome.scss';
 import _ from 'underscore'; // eslint-disable-line import/no-extraneous-dependencies
 import Backbone from 'backbone'; // eslint-disable-line import/no-extraneous-dependencies
 import Marionette from 'backbone.marionette';
@@ -51,7 +51,7 @@ import i18next from './i18next';
 
 import { version as cdeVersion } from '../package.json';
 
-// import './static/code-de.css';
+import './static/code-de.css';
 import './_client.scss';
 
 es6Promise.polyfill();

@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Marionette from 'backbone.marionette';
 
 import template from './FeatureListView.hbs';

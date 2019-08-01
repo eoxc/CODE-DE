@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import 'bootstrap-slider';
 import 'bootstrap-slider/dist/css/bootstrap-slider.css';
 

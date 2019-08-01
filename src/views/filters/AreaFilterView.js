@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 import i18next from 'i18next';
