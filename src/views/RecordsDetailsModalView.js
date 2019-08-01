@@ -95,11 +95,7 @@ const RecordsDetailsModalView = ModalView.extend({
       // normal behavior - fit mapview to feature
       this.mapModel.show(recordModel.attributes);
     } else {
-      // just update map center to center of record bbox, do not change zoom
-      const centerLon = (recordModel.attributes.bbox[0] + recordModel.attributes.bbox[2]) / 2.0;
-      const centerLat = (recordModel.attributes.bbox[1] + recordModel.attributes.bbox[3]) / 2.0;
-      this.mapModel.set('center', [centerLon, centerLat]);
-      this.mapModel.trigger('change:center', this.mapModel);
+      // just update map, leave map area as was
       this.mapModel.trigger('change:zoom', this.mapModel);
     }
     this.highlightModel.highlight(recordModel.attributes);
