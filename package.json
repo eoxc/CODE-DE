@@ -8,8 +8,7 @@
     "watch": "webpack --config webpack.dev.js --watch",
     "dev": "webpack-dev-server --config webpack.dev.js --content-base src/ --port 8082",
     "docs": "node_modules/.bin/jsdoc README.md src -d ./docs -r -P package.json -t node_modules/minami",
-    "lint": "./node_modules/.bin/eslint src",
-    "stats": "webpack --json"
+    "lint": "./node_modules/.bin/eslint src"
   },
   "repository": {
     "type": "git",

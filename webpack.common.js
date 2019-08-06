@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const packageJson = require('./package.json');
 const eoxcPackageJson = require('eoxc/package.json');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin');
@@ -119,7 +118,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MomentLocalesPlugin(),
     new MomentTimezoneDataPlugin({
       startYear: currentYear - 20,
