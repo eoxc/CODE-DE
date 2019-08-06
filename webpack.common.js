@@ -1,16 +1,26 @@
 const webpack = require('webpack');
 const path = require('path');
-
 const packageJson = require('./package.json');
 const eoxcPackageJson = require('eoxc/package.json');
-const autoprefixer = require('autoprefixer');
-const precss = require('precss');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin');
+
+const currentYear = new Date().getFullYear();
+
+const babelConfigLoader = {
+  loader: 'babel-loader',
+  options: {
+    presets: ['@babel/preset-env'],
+    plugins: ['@babel/plugin-proposal-object-rest-spread'],
+    cacheDirectory: true
+  }
+};
 
 module.exports = {
   entry: {
-    'code-de': ['babel-polyfill', './src/preload.js', './src/main.js'],
-    'font-awesome': 'font-awesome/scss/font-awesome.scss',
+    'code-de': ['./src/preload.js', './src/main.js']
   },
   resolve: {
     alias: {
@@ -23,7 +33,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].bundle.js',
+    filename: `[name].bundle.${packageJson.version}.js`,
     library: 'code-de',
     libraryTarget: 'umd',
   },
@@ -34,69 +44,98 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /jquery\.js$/, loader: 'expose-loader?jQuery!expose-loader?$' },
-      { test: /node_modules.*eoxc.*js$/, loader: 'babel-loader' },
-      { test: /node_modules.*opensearch.*js$/, loader: 'babel-loader' },
-      { test: /node_modules.*ol.*js$/, loader: 'babel-loader' },
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.json$/,
+        use: { loader: 'json-loader' },
+        type: 'javascript/auto'
+      },
+      {
+        test: require.resolve('jquery'),
+        use: [{
+          loader: 'expose-loader',
+          options: '$'
+        }, {
+          loader: 'expose-loader',
+          options: 'jQuery'
+        }]
+      },
+      { test: /node_modules.*eoxc.*js$/, use: babelConfigLoader },
+      { test: /node_modules.*opensearch.*js$/, use: babelConfigLoader },
+      //{ test: /node_modules.*ol.*js$/, use: babelConfigLoader },
+      { test: /\.js$/, exclude: /node_modules/, use: babelConfigLoader },
       { test: /\.coffee$/, loader: 'coffee-loader' },
       { test: /\.litcoffee$/, loader: 'coffee-loader?literate' },
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
-      {
-        test: /\.(scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader', // translates CSS into CommonJS modules
-            }, {
-              loader: 'postcss-loader', // Run post css actions
-              options: {
-                plugins() {
-                  return [
-                    precss,
-                    autoprefixer
-                  ];
-                }
-              }
-            }, {
-              loader: 'sass-loader' // compiles SASS to CSS
+      { test: /\.less$/,
+        use: [MiniCssExtractPlugin.loader,
+          { loader: 'css-loader' },
+          { loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('autoprefixer')(),
+              ]
             }
-          ]
-        })
+          },
+        { loader: 'less-loader' }] },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: {} },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('autoprefixer')(),
+              ]
+            }
+          },
+          { loader: 'sass-loader', options: {} },
+        ]
       },
-      { test: /\.less$/, loaders: ['style-loader', 'css-loader', 'less-loader'] },
-      { test: /\.hbs$/, loader: 'handlebars-loader', options: { knownHelpersOnly: false, helperDirs: path.join(__dirname, 'src', 'helpers') } },
+      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: path.join(__dirname, 'src', 'helpers') } },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: 'url-loader?limit=10000',
       },
       {
-        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        use: 'file-loader',
+        test: /\.(png|woff2|woff|ttf|eot|svg)($|\?)/, use: 'file-loader',
       },
       { test: /font-awesome\.config\.js/,
         use: [
-          { loader: 'style-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('autoprefixer')(),
+              ]
+            }
+          },
           { loader: 'font-awesome-loader' },
         ],
       },
     ],
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'main.css', allChunks: true,
+    new CleanWebpackPlugin(),
+    new MomentLocalesPlugin(),
+    new MomentTimezoneDataPlugin({
+      startYear: currentYear - 20,
+      endYear: currentYear + 7
+    }),
+    new MiniCssExtractPlugin({
+      filename: `[name].bundle.${packageJson.version}.css`
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      jquery: 'jquery',
       'window.jQuery': 'jquery',
+      _: 'underscore',
     }),
     new webpack.BannerPlugin(
       `CODE-DE version: ${packageJson.version}\neoxc version: ${eoxcPackageJson.version}`
     ),
   ],
-  //devtool: 'source-map',
-  cache: true,
 };
