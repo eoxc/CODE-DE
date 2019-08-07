@@ -4,7 +4,6 @@ import i18next from 'i18next';
 
 import template from './AreaFilterView.hbs';
 import FeatureListView from './FeatureListView';
-import { parseFeaturesFromFiles } from '../../utils';
 
 const AreaFilterView = Marionette.LayoutView.extend({
   template,
@@ -29,9 +28,6 @@ const AreaFilterView = Marionette.LayoutView.extend({
     this.mapModel = options.mapModel;
     this.highlightModel = options.highlightModel;
     this.uploadEnabled = options.uploadEnabled;
-    if (this.uploadEnabled) {
-      // TODO conditional import of parseFeaturesFromFiles - large dependency which can be put as a worker and then not downloaded unless needed
-    }
     this.featureListCollection = new Backbone.Collection();
 
     this.listenTo(this.mapModel, 'change:area', this.onMapAreaChanged);
@@ -113,8 +109,7 @@ const AreaFilterView = Marionette.LayoutView.extend({
       const names = files.map(file => file.name).join(', ');
 
       $input.val(names);
-
-      parseFeaturesFromFiles(files)
+      import('../../shputil').then(shputil => shputil.default(files)
         .then((features) => {
           this.featureListCollection.reset(features);
           this.$('.select-feature').prop('disabled', false);
@@ -125,7 +120,7 @@ const AreaFilterView = Marionette.LayoutView.extend({
           currentTarget.value = '';
           this.featureListCollection.reset([]);
           throw error;
-        });
+        }));
     } else {
       $input.val('');
       this.featureListCollection.reset([]);
