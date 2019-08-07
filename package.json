@@ -6,7 +6,7 @@
     "build": "webpack --progress --config webpack.prod.js --profile --json > stats.json",
     "build-dev": "webpack --progress --config webpack.dev.js",
     "watch": "webpack --config webpack.dev.js --watch",
-    "dev": "webpack-dev-server --config webpack.dev.js --content-base src/ --port 8082",
+    "dev-server": "webpack-dev-server --config webpack.dev.js --content-base src/ --port 8081",
     "docs": "node_modules/.bin/jsdoc README.md src -d ./docs -r -P package.json -t node_modules/minami",
     "lint": "./node_modules/.bin/eslint src"
   },
@@ -73,7 +73,6 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.26",
     "parse-color": "^1.0.0",
-    "script-path": "^1.0.1",
     "shpjs": "^3.4.3"
   },
   "browserslist": {
