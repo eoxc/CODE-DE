@@ -1,11 +1,12 @@
 // require styles
-import 'bootstrap/dist/css/bootstrap.min.css';
 import es6Promise from 'es6-promise';
+import i18next from 'i18next';
 
 import 'font-awesome/scss/font-awesome.scss';
 import Backbone from 'backbone'; // eslint-disable-line import/no-extraneous-dependencies
 import Marionette from 'backbone.marionette';
-import 'bootstrap/dist/js/bootstrap.min';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import LayersCollection from 'eoxc/src/core/models/LayersCollection';
 import MapModel from 'eoxc/src/core/models/MapModel';
@@ -43,8 +44,6 @@ import WarningsCollection from './models/WarningsCollection';
 
 import getTutorialWidget from './tutorial';
 import { premultiplyColor } from './utils';
-
-import i18next from './i18next';
 
 import { version as cdeVersion } from '../package.json';
 

@@ -58,7 +58,7 @@ module.exports = {
       },
       { test: /node_modules.*eoxc.*js$/, use: babelConfigLoader },
       { test: /node_modules.*opensearch.*js$/, use: babelConfigLoader },
-      //{ test: /node_modules.*ol.*js$/, use: babelConfigLoader },
+      { test: /node_modules.*ol.*js$/, use: babelConfigLoader },
       { test: /\.js$/, exclude: /node_modules/, use: babelConfigLoader },
       { test: /\.coffee$/, loader: 'coffee-loader' },
       { test: /\.litcoffee$/, loader: 'coffee-loader?literate' },
@@ -78,7 +78,7 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: {} },
+          { loader: 'css-loader' },
           {
             loader: 'postcss-loader',
             options: {
@@ -91,16 +91,22 @@ module.exports = {
           { loader: 'sass-loader', options: {} },
         ]
       },
-      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: path.join(__dirname, 'src', 'helpers') } },
+      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: path.join(__dirname, 'node_modules', 'eoxc', 'src', 'helpers') } },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: 'url-loader?limit=10000',
       },
       {
-        test: /\.(png|woff2|woff|ttf|eot|svg)($|\?)/, use: 'file-loader',
+        test: /\.(png|woff2|woff|ttf|eot|svg)($|\?)/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        }
       },
       { test: /font-awesome\.config\.js/,
         use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader' },
           {
             loader: 'postcss-loader',
             options: {
@@ -119,10 +125,11 @@ module.exports = {
     new MomentLocalesPlugin(),
     new MomentTimezoneDataPlugin({
       startYear: currentYear - 20,
-      endYear: currentYear + 7
+      endYear: currentYear + 12
     }),
     new MiniCssExtractPlugin({
-      filename: `[name].bundle.${packageJson.version}.css`
+      filename: `[name].bundle.${packageJson.version}.css`,
+      chunkFilename: '[id].css'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',

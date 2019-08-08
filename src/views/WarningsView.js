@@ -1,6 +1,6 @@
 import Marionette from 'backbone.marionette';
 
-require('./WarningsView.css');
+import './WarningsView.css';
 
 const WarningView = Marionette.ItemView.extend({
   template: ({ message }) => `<div class="alert alert-warning" role="alert">
@@ -18,5 +18,4 @@ const WarningView = Marionette.ItemView.extend({
 
 export default Marionette.CollectionView.extend({
   childView: WarningView,
-  // template: () => '<div class="alert alert-danger">Narrow down search to show all results</div>',
 });

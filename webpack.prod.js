@@ -14,7 +14,7 @@ module.exports = merge(common, {
         sourceMap: true,
         uglifyOptions: {
           compress: {
-            passes: 2,
+            passes: 1,
             drop_console: true,
           }
         }

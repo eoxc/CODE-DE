@@ -1,6 +1,6 @@
 
 import { Anno, AnnoButton } from 'anno.js/src/anno.litcoffee';
-import i18next from './i18next';
+import i18next from 'i18next';
 
 import 'anno.js/dist/anno.css';
 import './tutorial.css';

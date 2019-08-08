@@ -1,7 +1,6 @@
 import Marionette from 'backbone.marionette';
-
-require('./SidePanelView.css');
-const template = require('./SidePanelView.hbs');
+import './SidePanelView.css';
+import template from './SidePanelView.hbs';
 
 export default Marionette.LayoutView.extend({
   template,

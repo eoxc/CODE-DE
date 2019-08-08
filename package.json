@@ -62,9 +62,9 @@
     "anno.js": "^1.0.3",
     "backbone.marionette": "^2.4.7",
     "bootstrap": "^3.3.7",
-    "bootstrap-slider": "^9.7.2",
+    "bootstrap-slider": "^10.6.2",
     "eonasdan-bootstrap-datetimepicker": "^4.17.42",
-    "eoxc": "1.1.0-rc.18",
+    "eoxc": "eoxc/eoxc#0fa86a622c8804de62147aab538f6bbcf0eee3ab",
     "es6-promise": "^4.2.8",
     "font-awesome": "^4.7.0",
     "i18next": "^17.0.0",
@@ -73,6 +73,7 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.26",
     "parse-color": "^1.0.0",
+    "script-path": "^1.0.1",
     "shpjs": "^3.4.3"
   },
   "browserslist": {
