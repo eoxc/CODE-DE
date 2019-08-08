@@ -60,11 +60,12 @@
   },
   "dependencies": {
     "anno.js": "^1.0.3",
+    "backbone": "^1.4.0",
     "backbone.marionette": "^2.4.7",
     "bootstrap": "^3.3.7",
     "bootstrap-slider": "^10.6.2",
     "eonasdan-bootstrap-datetimepicker": "^4.17.42",
-    "eoxc": "eoxc/eoxc#0fa86a622c8804de62147aab538f6bbcf0eee3ab",
+    "eoxc": "eoxc/eoxc#c514c15e22a25d5526503948862ca761f6ca53b3",
     "es6-promise": "^4.2.8",
     "font-awesome": "^4.7.0",
     "i18next": "^17.0.0",

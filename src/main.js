@@ -480,7 +480,6 @@ window.Application = Marionette.Application.extend({
           $('#tutorial').click(() => {
             // Iterate through anno elements to see if any is open and needs to
             // be closed
-            /* eslint-disable no-underscore-dangle */
             let cv = tutWidg;
             while (cv._chainNext) {
               if (cv._annoElem) {
@@ -488,7 +487,6 @@ window.Application = Marionette.Application.extend({
               }
               cv = cv._chainNext;
             }
-            /* eslint-enable no-underscore-dangle */
             tutWidg.show();
           });
         }
