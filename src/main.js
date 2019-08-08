@@ -432,38 +432,10 @@ window.Application = Marionette.Application.extend({
     const warningsCollection = new WarningsCollection([]);
     layout.showChildView('topPanel', new WarningsView({ collection: warningsCollection }));
 
-    // hook up the events that shall generate warnings
-    // filtersModel.on('change', () => {
-    //   // show warning when time filter is set
-    //   warningsCollection.setWarning(
-    //     i18next.t('timefilter_warning'),
-    //     filtersModel.get('time') || false
-    //   );
-
-    //   const otherFilters = Object.keys(filtersModel.attributes)
-    //     .filter(key => key !== 'time' && key !== 'area');
-    //   warningsCollection.setWarning(
-    //     i18next.t('advancedfilter_warning'),
-    //     otherFilters.length
-    //   );
-    // });
-
     // show a warning for every layer that failed to be accessed
     failedLayers.forEach(layer => warningsCollection.setWarning(
       i18next.t('layer_failed', { value: layer.get('displayName') })
     ));
-
-    // searchCollection.on('change', () => {
-    //   const show = searchCollection
-    //     .filter(searchModel => (
-    //       !searchModel.get('isSearching') && !searchModel.get('hasError')
-    //     ))
-    //     .reduce((acc, searchModel) => (
-    //       acc || searchModel.get('totalResults') > searchModel.get('hasLoaded')
-    //     ), false);
-    //   warningsCollection.setWarning(i18next.t('toomanyresults_warning'), show);
-    // });
-
 
     if (settings.extent) {
       mapModel.show({ bbox: settings.extent });
