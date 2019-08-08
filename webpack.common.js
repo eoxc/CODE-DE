@@ -31,6 +31,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: `[name].bundle.${packageJson.version}.js`,
+    chunkFilename: '[name].[chunkhash].js',
     library: 'code-de',
     libraryTarget: 'umd',
   },
@@ -100,7 +101,7 @@ module.exports = {
         test: /\.(png|woff2|woff|ttf|eot|svg)($|\?)/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
+          name: '[name].[contenthash].[ext]',
         }
       },
       { test: /font-awesome\.config\.js/,
@@ -129,7 +130,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: `[name].bundle.${packageJson.version}.css`,
-      chunkFilename: '[id].css'
+      chunkFilename: '[id].[chunkhash].css'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',

@@ -9,6 +9,7 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
   ],
   optimization: {
+    moduleIds: 'hashed',
     minimizer: [
       new UglifyJSPlugin({
         sourceMap: true,
