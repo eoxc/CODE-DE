@@ -130,7 +130,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: `[name].bundle.${packageJson.version}.css`,
-      chunkFilename: '[id].[chunkhash].css'
+      chunkFilename: '[id].[contenthash].css'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
