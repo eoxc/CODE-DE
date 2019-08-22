@@ -30,7 +30,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: `[name].bundle.${packageJson.version}.js`,
+    filename: `[name].${packageJson.version}.js`,
     chunkFilename: '[name].[chunkhash].js',
     library: 'code-de',
     libraryTarget: 'umd',
@@ -92,13 +92,10 @@ module.exports = {
           { loader: 'sass-loader', options: {} },
         ]
       },
-      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: path.join(__dirname, 'node_modules', 'eoxc', 'src', 'helpers') } },
-      {
-        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: 'url-loader?limit=10000',
+      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: path.join(__dirname, 'node_modules', 'eoxc', 'src', 'helpers') } 
       },
       {
-        test: /\.(png|woff2|woff|ttf|eot|svg)($|\?)/,
+        test: /\.(png|woff2|woff|ttf|eot|svg)/,
         loader: 'file-loader',
         options: {
           name: '[name].[contenthash].[ext]',
@@ -129,8 +126,8 @@ module.exports = {
       endYear: currentYear + 12
     }),
     new MiniCssExtractPlugin({
-      filename: `[name].bundle.${packageJson.version}.css`,
-      chunkFilename: '[id].[contenthash].css'
+      filename: `[name].${packageJson.version}.css`,
+      chunkFilename: '[name].[contenthash].css',
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',

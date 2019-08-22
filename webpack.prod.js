@@ -3,47 +3,54 @@ const common = require('./webpack.common.js');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
     new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'src/template.html',
+      minify: false,
+      chunksSortMode: 'manual',
+      // sorting order necessary for CSS overwrites not having enough !default
+      chunks: ['vendors~code-de', 'vendorslarge~code-de', 'eoxdeps~code-de', 'eoxc~code-de', 'code-de']
+    }),
   ],
-  devtool: 'source-map', // 
+  devtool: 'source-map',
   optimization: {
     moduleIds: 'hashed',
     minimizer: [
       new UglifyJSPlugin({
         sourceMap: true,
+        cache: true,
+        parallel: true,
         uglifyOptions: {
           compress: {
-            passes: 1,
+            passes: 2,
             drop_console: true,
           }
         }
       }),
       new OptimizeCSSAssetsPlugin({})
     ],
-    namedModules: false,
-    namedChunks: false,
-    nodeEnv: 'production',
-    flagIncludedChunks: true,
-    occurrenceOrder: true,
-    sideEffects: true,
-    usedExports: true,
-    concatenateModules: true,
-    noEmitOnErrors: true,
-    checkWasmTypes: true,
-    minimize: true,
     runtimeChunk: false,
     splitChunks: {
+      maxInitialRequests: Infinity,
+      minSize: 1000,
+      chunks: 'all',
       cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          enforce: true,
+        eoxdeps: {
+          test: /[\\/]node_modules[\\/](D3.TimeSlider|libcoverage|opensearch-browser)[\\/]/,
+          name: 'eoxdeps~code-de',
+        },
+        vendorslarge: {
+          test: /[\\/]node_modules[\\/](turf-jsts|bluebird|ol|d3)[\\/]/,
+          name: 'vendorslarge~code-de',
+        },
+        eoxc: {
+          test: /[\\/]node_modules[\\/](eoxc)[\\/]/,
+          name: 'eoxc~code-de',
         },
       },
     },
