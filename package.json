@@ -4,7 +4,6 @@
   "description": "CODE-DE",
   "scripts": {
     "build": "webpack --progress --config webpack.prod.js --profile --json > stats.json",
-    "postbuild": "rm dist/glyphicons-halflings-regular*",
     "watch": "webpack --config webpack.dev.js --watch",
     "dev-server": "webpack-dev-server --config webpack.dev.js --content-base src/ --port 8081",
     "docs": "node_modules/.bin/jsdoc README.md src -d ./docs -r -P package.json -t node_modules/minami",
