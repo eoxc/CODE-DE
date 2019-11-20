@@ -92,7 +92,7 @@ module.exports = {
           { loader: 'sass-loader', options: {} },
         ]
       },
-      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: path.join(__dirname, 'node_modules', 'eoxc', 'src', 'helpers') } 
+      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: path.join(__dirname, 'node_modules', 'eoxc', 'src', 'helpers') }
       },
       {
         test: /\.(png|woff2|woff|ttf|eot|svg)/,
@@ -135,8 +135,8 @@ module.exports = {
       'window.jQuery': 'jquery',
       _: 'underscore',
     }),
-    new webpack.BannerPlugin(
-      `CODE-DE version: ${packageJson.version}\neoxc version: ${eoxcPackageJson.version}`
-    ),
+    new webpack.BannerPlugin({
+      banner: `CODE-DE version: ${packageJson.version}\neoxc version: ${eoxcPackageJson.version}`
+    }),
   ],
 };
