@@ -19,12 +19,14 @@ const babelConfigLoader = {
 
 module.exports = {
   entry: {
+    // preload exists so that opensearch-worker finds path
     'code-de': ['./src/preload.js', './src/main.js']
   },
   resolve: {
     alias: {
       // necessary to avoid multiple packings of backbone due to marionette
       backbone: path.join(__dirname, 'node_modules', 'backbone', 'backbone'),
+      // simply too old package
       scrollintoview: 'anno.js/bower_components/scrollintoview',
     },
   },
@@ -42,11 +44,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.json$/,
-        use: { loader: 'json-loader' },
-        type: 'javascript/auto'
-      },
       {
         test: require.resolve('jquery'),
         use: [{
