@@ -473,20 +473,8 @@ input {
     position: relative;
     top: -1px;
   }
-
-  // &:hover {
-  //   background-color: transparent;
-  // }
 }
 
-#infoPanel .btn:hover .icon-eox-eye-white {
-  background: no-repeat center url('./eox/EOX_Logo_eye_only.svg');
-  width: 16px;
-  height: 16px;
-  display: block;
-  background-size: contain;
-  margin: 2px;
-}
 
 .ol-attribution {
   z-index: 100;
@@ -673,14 +661,4 @@ body {
   scrollbar-arrow-color: $c_hi;
   scrollbar-shadow-color: $c_lo;
   scrollbar-dark-shadow-color: #C0C0C0;
-}
-
-// vendor info stuff:
-.icon-eox-eye {
-  background: no-repeat center url('eox/EOX_Logo_eye_only.svg');
-  width: 23px;
-  height: 13px;
-  display: block;
-  background-size: contain;
-  display: inline-block;
 }
