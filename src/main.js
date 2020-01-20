@@ -2,7 +2,6 @@
 import es6Promise from 'es6-promise';
 import i18next from 'i18next';
 
-import 'font-awesome/scss/font-awesome.scss';
 import Backbone from 'backbone'; // eslint-disable-line import/no-extraneous-dependencies
 import Marionette from 'backbone.marionette';
 import 'bootstrap';
@@ -46,7 +45,7 @@ import getTutorialWidget from './tutorial';
 import { premultiplyColor } from './utils';
 
 import { version as cdeVersion } from '../package.json';
-
+import './fa-import';
 import './_client.scss';
 
 es6Promise.polyfill();
@@ -361,7 +360,7 @@ window.Application = Marionette.Application.extend({
 
     layout.showChildView('leftPanel', new SidePanelView({
       position: 'left',
-      icon: 'fa-cog',
+      icon: 'fas fa-cog',
       defaultOpen: settings.leftPanelOpen,
       views: [{
         name: 'Filters',
@@ -391,7 +390,7 @@ window.Application = Marionette.Application.extend({
 
     layout.showChildView('rightPanel', new SidePanelView({
       position: 'right',
-      icon: 'fa-list',
+      icon: 'fas fa-list',
       defaultOpen: settings.rightPanelOpen,
       views: [{
         name: 'Search Results',
@@ -471,7 +470,7 @@ window.Application = Marionette.Application.extend({
           $('.ol-attribution').append(
           `<button type="button" title="${i18next.t('Tutorial')}" id="tutorial" style="float:right;">
             <span>
-              <i style="font-size:0.8em;" class="fa fa-book" aria-hidden="true"></i>
+              <i style="font-size:0.8em;" class="fas fa-book" aria-hidden="true"></i>
             </span>
           </button>`);
 

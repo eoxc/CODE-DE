@@ -48,7 +48,7 @@ const TimeFilterView = Marionette.ItemView.extend({
           delete: null,
         },
         icons: {
-          close: 'fa fa-check'
+          close: 'fas fa-check'
         }
       });
     });

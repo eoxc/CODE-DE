@@ -98,22 +98,6 @@ module.exports = {
           name: '[name].[contenthash].[ext]',
         }
       },
-      { test: /font-awesome\.config\.js/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: [
-                require('autoprefixer')(),
-              ]
-            }
-          },
-          { loader: 'font-awesome-loader' },
-        ],
-      },
     ],
   },
   plugins: [

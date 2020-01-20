@@ -36,7 +36,6 @@
     "eslint-plugin-react": "^6.6.0",
     "expose-loader": "^0.7.5",
     "file-loader": "^4.1.0",
-    "font-awesome-loader": "^1.0.2",
     "handlebars": "^4.1.2",
     "handlebars-loader": "^1.7.1",
     "html-webpack-plugin": "^3.2.0",
@@ -60,6 +59,9 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "anno.js": "^1.0.3",
     "backbone": "1.3.3",
     "backbone.marionette": "^2.4.7",
@@ -68,7 +70,6 @@
     "eonasdan-bootstrap-datetimepicker": "^4.17.42",
     "eoxc": "eoxc/eoxc#834a5e9d6e2355d12f82b244691fbdd791c96e36",
     "es6-promise": "^4.2.8",
-    "font-awesome": "^4.7.0",
     "i18next": "^17.0.0",
     "jquery": "^2.2.3",
     "less": "^3.9.0",
