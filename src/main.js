@@ -48,12 +48,11 @@ import { version as cdeVersion } from '../package.json';
 import './fa-import';
 import './_client.scss';
 
+import germanFormalTranslation from './languages/de.json';
+import germanInformalTranslation from './languages/deinformal.json';
+import englishTranslation from './languages/en.json';
+
 es6Promise.polyfill();
-
-const germanFormalTranslation = require('./languages/de.json');
-const germanInformalTranslation = require('./languages/deinformal.json');
-const englishTranslation = require('./languages/en.json');
-
 
 function combineParameter(setting, param) {
   const options = setting.options || param.options;

@@ -32,8 +32,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: `[name].${packageJson.version}.js`,
-    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].js',
     library: 'code-de',
     libraryTarget: 'umd',
   },
@@ -56,7 +55,6 @@ module.exports = {
       },
       { test: /node_modules.*eoxc.*js$/, use: babelConfigLoader },
       { test: /node_modules.*opensearch.*js$/, use: babelConfigLoader },
-      { test: /node_modules.*ol.*js$/, use: babelConfigLoader },
       { test: /\.js$/, exclude: /node_modules/, use: babelConfigLoader },
       { test: /\.coffee$/, loader: 'coffee-loader' },
       { test: /\.litcoffee$/, loader: 'coffee-loader?literate' },
@@ -89,13 +87,13 @@ module.exports = {
           { loader: 'sass-loader', options: {} },
         ]
       },
-      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: path.join(__dirname, 'node_modules', 'eoxc', 'src', 'helpers') }
+      { test: /\.hbs$/, loader: 'handlebars-loader', options: { helperDirs: [path.join(__dirname, 'node_modules', 'eoxc', 'src', 'helpers')] }
       },
       {
         test: /\.(png|woff2|woff|ttf|eot|svg)/,
         loader: 'file-loader',
         options: {
-          name: '[name].[contenthash].[ext]',
+          name: '[name].[ext]',
         }
       },
     ],
@@ -107,8 +105,7 @@ module.exports = {
       endYear: currentYear + 12
     }),
     new MiniCssExtractPlugin({
-      filename: `[name].${packageJson.version}.css`,
-      chunkFilename: '[name].[contenthash].css',
+      filename: '[name].css',
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
