@@ -73,7 +73,7 @@
     "eoxc": "1.1.0-rc.18",
     "es6-promise": "^4.0.5",
     "i18next": "^3.4.1",
-    "jquery": "^2.2.3",
+    "jquery": "^3.5.0",
     "jquery-ui": "^1.10.5",
     "moment-timezone": "^0.5.10",
     "parse-color": "^1.0.0",
